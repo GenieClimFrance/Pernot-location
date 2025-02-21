@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .snap-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100vh;
+    max-height: 100vh;
+  }
+}
+
+.vehicle-hover {
+  @apply hover:scale-105 transition-all duration-300 hover:z-10;
+}
+
+.input {
+  @apply w-full px-3 py-2 bg-white rounded-none text-secondary placeholder:font-bold;
+}
+
+.focus {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent focus:shadow-lg transition-all duration-300;
+}
+
+.swiper-pagination-bullet {
+  background-color: #d9470b !important;
+}
+
+/* Styles pour le thumb (le point qu'on fait glisser) */
+input[type="range"]::-webkit-slider-thumb {
+  @apply w-4 h-4 bg-primary rounded-full border-2 border-white appearance-none;
+  margin-top: -4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @apply w-4 h-4 bg-primary rounded-full border-2 border-white;
+}
+
+/* Styles pour la track (la barre) */
+input[type="range"]::-webkit-slider-runnable-track {
+  @apply h-2 bg-white/10 rounded-lg;
+}
+
+input[type="range"]::-moz-range-track {
+  @apply h-2 bg-white rounded-lg;
+}
+
+/* Style au survol */
+input[type="range"]:hover::-webkit-slider-thumb {
+  @apply bg-primary;
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+  @apply bg-primary;
+}
+
+.vehicle-details-page nav {
+  @apply bg-secondary;
+}

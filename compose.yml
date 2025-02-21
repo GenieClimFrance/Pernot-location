@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  nextjs:
+    image: ${DOCKER_USERNAME}/${APP_NAME}:latest
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY}
+      - RECIPIENT_EMAIL=${RECIPIENT_EMAIL}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+    networks:
+      - coolify
+    labels:
+      - "coolify.managed=true"
+      - "traefik.enable=true"
+      - "traefik.http.services.geniesolaire.loadbalancer.server.port=3000"
+      - "traefik.http.routers.geniesolaire.rule=Host(`i8o40kscckwk0s0kk4g4kkws.195.35.48.112.sslip.io`)"
+      - "traefik.http.routers.geniesolaire.entrypoints=websecure,web"
+      - "traefik.http.routers.geniesolaire.service=geniesolaire"
+      - "traefik.http.routers.geniesolaire-http.rule=Host(`i8o40kscckwk0s0kk4g4kkws.195.35.48.112.sslip.io`)"
+      - "traefik.http.routers.geniesolaire-http.entrypoints=web"
+      - "traefik.http.routers.geniesolaire-http.middlewares=https-redirect"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.docker.network=coolify"
+    expose:
+      - "3000"
+    container_name: plocation
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  coolify:
+    external: true
