@@ -10,7 +10,7 @@ interface FilterPriceProps {
 export const FilterPrice = forwardRef<HTMLInputElement, FilterPriceProps>(
   ({ onFilterChange, value = 0 }, ref) => {
     const [priceRange, setPriceRange] = useState(value);
-    const maxPrice = Math.max(...vehicles.map((vehicle) => vehicle.price));
+    const maxPrice = Math.max(...vehicles.map((vehicle) => vehicle.price.day));
 
     useEffect(() => {
       setPriceRange(value);
