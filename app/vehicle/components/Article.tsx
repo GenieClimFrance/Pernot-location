@@ -17,10 +17,9 @@ type FilterState = {
 
 interface ArticleProps {
   forwardedRef: (node: HTMLElement | null) => void;
-  initialBrand?: string;
 }
 
-function Article({ forwardedRef, initialBrand }: ArticleProps) {
+function Article({ forwardedRef }: ArticleProps) {
   const searchParams = useSearchParams();
   const typeParam = searchParams.get("type");
   const brandParam = searchParams.get("brand");
@@ -54,7 +53,7 @@ function Article({ forwardedRef, initialBrand }: ArticleProps) {
       if (!brandMatch && !typeMatch) return false;
     }
 
-    if (filters.maxPrice > 0 && vehicle.price > filters.maxPrice) {
+    if (filters.maxPrice > 0 && vehicle.price.day > filters.maxPrice) {
       return false;
     }
 

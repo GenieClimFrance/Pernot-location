@@ -354,53 +354,53 @@ export const vehicles: Vehicles[] = [
       return found;
     }),
   },
-  {
-    id: 5,
-    brand: "Ducati",
-    model: "Panigale V4 S",
-    type: "motorcycle",
-    thumbnail: "/motos/thumbnails/ducati-panigale-v4-s.png",
-    description: [
-      "C'est une moto d'exception conçue pour offrir des performances époustouflantes et un design racé à couper le souffle. Véritable bijou d'ingénierie, cette Ducati est la fusion parfaite entre puissance, précision et élégance. ",
-      "Que ce soit sur circuit ou sur route, la Panigale V4 S garantit une expérience de pilotage unique, mêlant adrénaline et maîtrise absolue.",
-    ],
-    price: {
-      day: 1000,
-      weekend: 1200,
-      week: 1500,
-    },
-    priceWithDriver: {
-      day: 1200,
-      weekend: 1400,
-      week: 1600,
-    },
-    images: [
-      "/motos/ducati-panigale-v4-s/1.webp",
-      "/motos/ducati-panigale-v4-s/2.webp",
-      "/motos/ducati-panigale-v4-s/3.webp",
-      "/motos/ducati-panigale-v4-s/4.webp",
-    ],
-    passengers: 2,
-    fuelType: "Essence",
-    transmission: "Desmodromique",
-    isNew: true,
-    carType: "Moto",
-    features: [
-      "Chassis ultra léger",
-      "Moteur V4 surpuissant",
-      "Aérodynamisme optimisé",
-      "Design Ducati iconique",
-    ],
-    equipments: (
-      ["Quick shifter", "Launch control", "Poignées chauffantes"] as const
-    ).map((name) => {
-      const found = equipments.find((eq) => eq.name === name);
+  // {
+  //   id: 5,
+  //   brand: "Ducati",
+  //   model: "Panigale V4 S",
+  //   type: "motorcycle",
+  //   thumbnail: "/motos/thumbnails/ducati-panigale-v4-s.png",
+  //   description: [
+  //     "C'est une moto d'exception conçue pour offrir des performances époustouflantes et un design racé à couper le souffle. Véritable bijou d'ingénierie, cette Ducati est la fusion parfaite entre puissance, précision et élégance. ",
+  //     "Que ce soit sur circuit ou sur route, la Panigale V4 S garantit une expérience de pilotage unique, mêlant adrénaline et maîtrise absolue.",
+  //   ],
+  //   price: {
+  //     day: 1000,
+  //     weekend: 1200,
+  //     week: 1500,
+  //   },
+  //   priceWithDriver: {
+  //     day: 1200,
+  //     weekend: 1400,
+  //     week: 1600,
+  //   },
+  //   images: [
+  //     "/motos/ducati-panigale-v4-s/1.webp",
+  //     "/motos/ducati-panigale-v4-s/2.webp",
+  //     "/motos/ducati-panigale-v4-s/3.webp",
+  //     "/motos/ducati-panigale-v4-s/4.webp",
+  //   ],
+  //   passengers: 2,
+  //   fuelType: "Essence",
+  //   transmission: "Desmodromique",
+  //   isNew: true,
+  //   carType: "Moto",
+  //   features: [
+  //     "Chassis ultra léger",
+  //     "Moteur V4 surpuissant",
+  //     "Aérodynamisme optimisé",
+  //     "Design Ducati iconique",
+  //   ],
+  //   equipments: (
+  //     ["Quick shifter", "Launch control", "Poignées chauffantes"] as const
+  //   ).map((name) => {
+  //     const found = equipments.find((eq) => eq.name === name);
 
-      if (!found) {
-        throw new Error(`L'équipement ${name} n'a pas été trouvé.`);
-      }
+  //     if (!found) {
+  //       throw new Error(`L'équipement ${name} n'a pas été trouvé.`);
+  //     }
 
-      return found;
-    }),
-  },
+  //     return found;
+  //   }),
+  // },
 ];
