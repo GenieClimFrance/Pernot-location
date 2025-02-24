@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, LegacyRef } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -16,10 +16,11 @@ type FilterState = {
 };
 
 interface ArticleProps {
-  forwardedRef: (node: HTMLElement | null) => void;
+  forwardedRef: LegacyRef<HTMLElement>;
+  initialBrand?: string;
 }
 
-function Article({ forwardedRef }: ArticleProps) {
+function Article({ forwardedRef, initialBrand }: ArticleProps) {
   const searchParams = useSearchParams();
   const typeParam = searchParams.get("type");
   const brandParam = searchParams.get("brand");
