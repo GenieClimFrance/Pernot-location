@@ -36,8 +36,8 @@ export default function VehicleDetails({ vehicle }: VehicleDetailsProps) {
         <ImageGallery images={vehicle.images} modelName={vehicle.model} />
         <aside className="flex flex-col gap-4 w-full lg:w-1/2">
           <h1 className="text-3xl lg:text-4xl text-secondary font-bold mb-4 uppercase font-roboto">
-            {vehicle.model}{" "}
-            <span className="text-primary text-nowrap">{vehicle.brand}</span>
+            {vehicle.brand}{" "}
+            <span className="text-primary text-nowrap">{vehicle.model}</span>
           </h1>
           <Tags vehicle={vehicle} />
           <div className="text-lg lg:text-[1.2rem] lg:h-[20.5rem] lg:leading-[1.9rem] text-secondary font-georgia pt-4 leading-6">

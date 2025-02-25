@@ -17,10 +17,10 @@ type FilterState = {
 
 interface ArticleProps {
   forwardedRef: (el: HTMLElement | null) => void;
-  initialBrand?: string;
+  _initialBrand?: string;
 }
 
-function Article({ forwardedRef, initialBrand }: ArticleProps) {
+function Article({ forwardedRef, _initialBrand }: ArticleProps) {
   const searchParams = useSearchParams();
   const typeParam = searchParams.get("type");
   const brandParam = searchParams.get("brand");

@@ -1,7 +1,13 @@
+import { Suspense } from "react";
+
 import Main from "./main";
 
-function Vehicles() {
-  return <Main />;
-}
+export const dynamic = "force-dynamic";
 
-export default Vehicles;
+export default function VehiclePage() {
+  return (
+    <Suspense fallback={<div>Chargement...</div>}>
+      <Main />
+    </Suspense>
+  );
+}

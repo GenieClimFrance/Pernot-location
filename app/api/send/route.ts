@@ -3,10 +3,6 @@ import sgMail from "@sendgrid/mail";
 
 const apiKey = process.env.SENDGRID_API_KEY;
 
-if (!apiKey) {
-  console.warn("Clé API SendGrid manquante");
-}
-
 // Initialiser SendGrid seulement si la clé est présente
 if (apiKey) {
   sgMail.setApiKey(apiKey);

@@ -56,8 +56,8 @@ export default function Main() {
           title="Découvrez notre sélection de"
         />
         <Article
+          _initialBrand={brandFilter || undefined}
           forwardedRef={(el) => (sectionRefs.current[1] = el)}
-          initialBrand={brandFilter || undefined}
         />
         <FooterSection forwardedRef={(el) => (sectionRefs.current[2] = el)} />
       </div>
