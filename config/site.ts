@@ -5,6 +5,11 @@ export const siteConfig = {
   description: "PLocation",
   navItems: [
     {
+      label: "Accueil",
+      href: "/",
+      key: "home",
+    },
+    {
       label: "Nos voitures",
       href: "/vehicle?type=car",
       key: "cars",
