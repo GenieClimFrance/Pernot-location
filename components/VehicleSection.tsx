@@ -199,7 +199,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                   />
                   <h3
                     className={clsx(
-                      "text-lg text-nowrap font-semibold font-roboto uppercase",
+                      "text-lg text-nowrap text-white font-semibold font-roboto uppercase",
                       "mb-2"
                     )}
                   >
