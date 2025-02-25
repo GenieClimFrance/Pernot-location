@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from "@heroui/checkbox";
 
 import { BlurFade } from "./ui/blur-fade";
 import { TextAnimate } from "./ui/text-animate";
@@ -184,28 +184,30 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
               />
             </button>
 
-            {isOpen && (
-              <div className="w-full overflow-y-auto">
-                <div className="p-4 border border-white flex flex-col gap-2 font-roboto font-bold">
-                  {vehicles.map((vehicle) => (
-                    <Checkbox
-                      key={vehicle.id}
-                      className="p-2 hover:bg-white/10"
-                      color="primary"
-                      isSelected={selectedVehicle === vehicle.id.toString()}
-                      onChange={() => {
-                        setSelectedVehicle(vehicle.id.toString());
-                        setIsOpen(false);
-                      }}
-                    >
-                      <span className="text-white uppercase">
-                        {vehicle.brand} {vehicle.model}
-                      </span>
-                    </Checkbox>
-                  ))}
-                </div>
+            <div
+              className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+                isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="p-4 border border-white flex flex-col gap-2 font-roboto font-bold">
+                {vehicles.map((vehicle) => (
+                  <Checkbox
+                    key={vehicle.id}
+                    className="p-2 hover:bg-white/10 cursor-pointer"
+                    color="primary"
+                    isSelected={selectedVehicle === vehicle.id.toString()}
+                    onChange={() => {
+                      setSelectedVehicle(vehicle.id.toString());
+                      setIsOpen(false);
+                    }}
+                  >
+                    <span className="text-white uppercase">
+                      {vehicle.brand} {vehicle.model}
+                    </span>
+                  </Checkbox>
+                ))}
               </div>
-            )}
+            </div>
           </div>
           <div ref={driverDropdownRef} className="relative w-full mb-4">
             <button
@@ -225,28 +227,28 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
               />
             </button>
 
-            {isDriverOpen && (
-              <div className="w-full overflow-y-auto">
-                <div className="p-4 border border-white flex flex-col gap-2 font-roboto font-bold">
-                  {driverOptions.map((option) => (
-                    <Checkbox
-                      key={option.value}
-                      className="p-2 hover:bg-white/10"
-                      color="primary"
-                      isSelected={selectedDriver === option.value}
-                      onChange={() => {
-                        setSelectedDriver(option.value);
-                        setIsDriverOpen(false);
-                      }}
-                    >
-                      <span className="text-white uppercase">
-                        {option.label}
-                      </span>
-                    </Checkbox>
-                  ))}
-                </div>
+            <div
+              className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+                isDriverOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              }`}
+            >
+              <div className="p-4 border border-white flex flex-col gap-2 font-roboto font-bold">
+                {driverOptions.map((option) => (
+                  <Checkbox
+                    key={option.value}
+                    className="p-2 hover:bg-white/10 cursor-pointer"
+                    color="primary"
+                    isSelected={selectedDriver === option.value}
+                    onChange={() => {
+                      setSelectedDriver(option.value);
+                      setIsDriverOpen(false);
+                    }}
+                  >
+                    <span className="text-white uppercase">{option.label}</span>
+                  </Checkbox>
+                ))}
               </div>
-            )}
+            </div>
           </div>
           <button
             className="bg-primary text-white px-6 py-3 uppercase font-roboto font-bold focus focus:ring-white"

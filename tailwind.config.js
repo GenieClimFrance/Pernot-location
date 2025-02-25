@@ -1,11 +1,12 @@
-import { nextui } from "@nextui-org/theme";
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/react/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/components/(checkbox|form).js",
   ],
   theme: {
     extend: {
@@ -54,5 +55,6 @@ module.exports = {
       },
     },
   },
-  plugins: [nextui(), require("tailwindcss-animate")],
+  darkMode: "class",
+  plugins: [heroui()],
 };

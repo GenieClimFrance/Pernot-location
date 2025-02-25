@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from "@heroui/checkbox";
 
 import { vehicles } from "@/data/vehicle";
 
@@ -62,34 +62,36 @@ export const FilterBrand = ({ onFilterChange }: FilterBrandProps) => {
         />
       </button>
 
-      {isOpen && (
-        <div className="w-full bg-secondary border border-white overflow-y-auto">
-          <div className="p-4 flex flex-col gap-2 font-roboto font-bold">
+      <div
+        className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="p-4 bg-secondary border border-white flex flex-col gap-2 font-roboto font-bold">
+          <Checkbox
+            className="p-2 hover:bg-white/10"
+            color="primary"
+            isSelected={selectedBrands.length === 0}
+            onChange={() => {
+              setSelectedBrands([]);
+              onFilterChange(["all"]);
+            }}
+          >
+            <span className="text-white uppercase">Toutes les marques</span>
+          </Checkbox>
+          {uniqueBrands.map((brand) => (
             <Checkbox
+              key={brand}
               className="p-2 hover:bg-white/10"
               color="primary"
-              isSelected={selectedBrands.length === 0}
-              onChange={() => {
-                setSelectedBrands([]);
-                onFilterChange(["all"]);
-              }}
+              isSelected={selectedBrands.includes(brand)}
+              onChange={() => handleBrandToggle(brand)}
             >
-              <span className="text-white uppercase">Toutes les marques</span>
+              <span className="text-white uppercase">{brand}</span>
             </Checkbox>
-            {uniqueBrands.map((brand) => (
-              <Checkbox
-                key={brand}
-                className="p-2 hover:bg-white/10"
-                color="primary"
-                isSelected={selectedBrands.includes(brand)}
-                onChange={() => handleBrandToggle(brand)}
-              >
-                <span className="text-white uppercase">{brand}</span>
-              </Checkbox>
-            ))}
-          </div>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

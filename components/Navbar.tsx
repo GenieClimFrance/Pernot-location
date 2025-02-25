@@ -9,7 +9,7 @@ import {
   ModalFooter,
   Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {
   FaPhoneAlt,
   FaFacebookF,
@@ -44,14 +44,16 @@ export const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const checkIsDesktop = () => {
-      setIsDesktop(window.innerWidth >= 1024); // 1024px est la breakpoint lg de Tailwind
-    };
+    if (typeof window !== "undefined") {
+      const checkIsDesktop = () => {
+        setIsDesktop(window.innerWidth >= 1024);
+      };
 
-    checkIsDesktop();
-    window.addEventListener("resize", checkIsDesktop);
+      checkIsDesktop();
+      window.addEventListener("resize", checkIsDesktop);
 
-    return () => window.removeEventListener("resize", checkIsDesktop);
+      return () => window.removeEventListener("resize", checkIsDesktop);
+    }
   }, []);
 
   useEffect(() => {

@@ -63,7 +63,7 @@ function SliderFooter() {
           <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/event.png')] bg-cover bg-center" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/pleasure.png')] bg-cover bg-right" />
+          <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/pleasure.png')] bg-cover bg-center" />
         </SwiperSlide>
       </Swiper>
     </div>

@@ -1,7 +1,8 @@
 import { FaPhone } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { useState } from "react";
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from "@heroui/react";
+import Link from "next/link";
 
 function Card({
   price,
@@ -76,8 +77,8 @@ function Card({
       <p className="text-secondary uppercase font-bold text-lg lg:text-xl mt-4 lg:mt-8">
         Intéressé pour louer ce véhicule ?
       </p>
-      <button className="bg-primary uppercase font-bold text-white w-full py-3 rounded-lg mt-4 lg:mb-4">
-        Soumettre une demande
+      <button className=" bg-primary uppercase font-bold text-white w-full py-3 rounded-lg mt-4 lg:mb-4">
+        <Link href="/#contact">Soumettre une demande</Link>
       </button>
       <div className="bg-secondary/80 h-px w-full mt-4" />
       <p className="text-secondary uppercase font-bold text-lg lg:text-xl mt-4 lg:mt-8">

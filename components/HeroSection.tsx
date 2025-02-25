@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { BsArrowRight } from "react-icons/bs";
 import { clsx } from "clsx";
+import Link from "next/link";
 
 import { BlurFade } from "./ui/blur-fade";
 
@@ -73,7 +74,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           {isHomePage && (
             <span className="inline-flex items-center">
               d&apos;exceptions.
-              <a
+              <Link
                 className={clsx(
                   // Typography & Colors
                   "text-primary text-4xl",
@@ -84,10 +85,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   // Transition
                   "transition-all duration-300"
                 )}
-                href="/vehicules"
+                href="/vehicle"
               >
                 <BsArrowRight />
-              </a>
+              </Link>
             </span>
           )}
         </p>

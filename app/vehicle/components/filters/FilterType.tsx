@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from "@heroui/react";
 
 type VehicleType = "all" | "car" | "motorcycle";
 
@@ -59,27 +59,29 @@ export const FilterType = ({ onFilterChange }: FilterTypeProps) => {
         />
       </button>
 
-      {isOpen && (
-        <div className="w-full bg-secondary border border-white overflow-y-auto">
-          <div className="p-4 flex flex-col gap-2 font-roboto font-bold">
-            {vehicleTypes.map((type) => (
-              <Checkbox
-                key={type.value}
-                className="p-2 hover:bg-white/10"
-                color="primary"
-                isSelected={selectedType === type.value}
-                onChange={() => {
-                  setSelectedType(type.value);
-                  onFilterChange([type.value]);
-                  setIsOpen(false);
-                }}
-              >
-                <span className="text-white uppercase">{type.label}</span>
-              </Checkbox>
-            ))}
-          </div>
+      <div
+        className={`w-full overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="p-4 bg-secondary border border-white flex flex-col gap-2 font-roboto font-bold">
+          {vehicleTypes.map((type) => (
+            <Checkbox
+              key={type.value}
+              className="p-2 hover:bg-white/10"
+              color="primary"
+              isSelected={selectedType === type.value}
+              onChange={() => {
+                setSelectedType(type.value);
+                onFilterChange([type.value]);
+                setIsOpen(false);
+              }}
+            >
+              <span className="text-white uppercase">{type.label}</span>
+            </Checkbox>
+          ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };
