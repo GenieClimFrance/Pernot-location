@@ -11,7 +11,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({ forwardedRef }) => {
       ref={forwardedRef}
       className="snap-section overflow-y-auto h-screen"
     >
-      <div className="pt-10">
+      <div className="pt-20 md:pt-10 bg-secondary">
         <SliderFooter />
       </div>
       <Footer />

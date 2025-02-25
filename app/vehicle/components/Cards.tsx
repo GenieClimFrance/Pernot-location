@@ -4,13 +4,22 @@ import { Vehicles } from "@/data/vehicle";
 
 function Cards({ vehicle }: { vehicle: Vehicles }) {
   return (
-    <div className="flex flex-col gap-4 bg-[url('/bg-cards.webp')] bg-cover bg-center bg-no-repeat font-roboto hover:scale-105 transition-all duration-300 lg:w-full lg:max-h-[25rem] h-full">
-      <div className="flex flex-col p-4 h-full">
-        <h3 className="text-xl font-bold uppercase">
+    <div
+      className="
+      flex flex-col gap-4 
+      bg-[url('/bg-cards.webp')] bg-cover bg-center bg-no-repeat 
+      font-roboto text-white
+      h-full lg:w-full lg:max-h-[25rem] 
+      hover:scale-105 transition-all duration-300
+    "
+    >
+      <div className="flex flex-col h-full p-4">
+        <h3 className="text-xl font-bold uppercase text-white">
           {vehicle.brand} {vehicle.model}
         </h3>
-        <ul className="flex flex-wrap gap-4 mt-4 mb-4">
-          <li className="flex gap-2 items-center border border-white rounded-md py-1 px-2">
+
+        <ul className="flex flex-wrap gap-4 my-4">
+          <li className="flex items-center gap-2 px-2 py-1 border border-white rounded-md">
             <Image
               alt="fuel"
               height={16}
@@ -18,16 +27,17 @@ function Cards({ vehicle }: { vehicle: Vehicles }) {
               style={{ width: "auto", height: "auto" }}
               width={16}
             />
-            <p>{vehicle.passengers}</p>
+            <p className="text-white">{vehicle.passengers}</p>
           </li>
-          <li className="border border-white rounded-md p-1">
+          <li className="p-1 border border-white rounded-md text-white">
             {vehicle.transmission}
           </li>
-          <li className="border border-white rounded-md p-1">
+          <li className="p-1 border border-white rounded-md text-white">
             {vehicle.fuelType}
           </li>
         </ul>
-        <div className="relative flex-1 w-full flex items-center justify-center">
+
+        <div className="relative flex-1 flex items-center justify-center w-full">
           <Image
             alt={`image de ${vehicle.brand} ${vehicle.model}`}
             className="object-contain w-full h-full"
@@ -36,7 +46,8 @@ function Cards({ vehicle }: { vehicle: Vehicles }) {
             width={500}
           />
         </div>
-        <div className="flex justify-between items-center mt-4">
+
+        <div className="flex items-center justify-between mt-4">
           <div>
             <p className="text-medium">à partir de</p>
             <p className="text-2xl font-bold">
