@@ -66,3 +66,7 @@ input[type="range"]:hover::-moz-range-thumb {
 .vehicle-details-page nav {
   @apply bg-secondary;
 }
+
+.navbar {
+  color: var(--navbar-color, white);
+}

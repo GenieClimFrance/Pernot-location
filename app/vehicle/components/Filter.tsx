@@ -60,7 +60,7 @@ function Filter({
           className="md:hidden fixed bottom-10 left-1/2 -translate-x-1/2 z-50"
           onClick={() => setIsOpen(true)}
         >
-          <span className="flex justify-center items-center gap-2 text-nowrap">
+          <span className="flex justify-center text-white items-center gap-2 text-nowrap">
             Filtrer les résultats
           </span>
         </FilterButton>

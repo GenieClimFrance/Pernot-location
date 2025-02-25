@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 import VehicleDetails from "./VehicleDetails";
 
 import SimpleFooter from "@/components/SimpleFooter";
@@ -8,6 +12,14 @@ export default function VehiclePage({
 }: {
   params: { brand: string; model: string };
 }) {
+  useEffect(() => {
+    document.documentElement.style.setProperty("--navbar-color", "white");
+
+    return () => {
+      document.documentElement.style.setProperty("--navbar-color", "initial");
+    };
+  }, []);
+
   const vehicle = vehicles.find(
     (vehicle) =>
       vehicle.brand.replaceAll(" ", "-").toLowerCase() ===
