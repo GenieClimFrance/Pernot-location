@@ -1,4 +1,4 @@
-import { useState, LegacyRef } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -16,7 +16,7 @@ type FilterState = {
 };
 
 interface ArticleProps {
-  forwardedRef: LegacyRef<HTMLElement>;
+  forwardedRef: (el: HTMLElement | null) => void;
   initialBrand?: string;
 }
 
