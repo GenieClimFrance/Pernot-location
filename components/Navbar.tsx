@@ -204,6 +204,7 @@ export const Navbar = () => {
                     key={item.href}
                     className="text-white hover:text-primary transition-all duration-300 font-roboto font-bold uppercase text-3xl lg:text-5xl xl:text-7xl 2xl:text-8xl lg:leading-[4.5rem] xl:leading-[6rem] 2xl:leading-[9rem] hover:underline underline-offset-8 decoration-[5px] lg:decoration-[10px] xl:decoration-[12px] 2xl:decoration-[15px]"
                     href={item.href}
+                    onClick={onClose}
                     onMouseEnter={() => isDesktop && setHoveredLink(item.href)}
                     onMouseLeave={() => isDesktop && setHoveredLink(null)}
                   >
