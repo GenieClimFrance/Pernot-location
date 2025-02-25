@@ -66,7 +66,10 @@ export const Navbar = () => {
   };
 
   const isDarkBackground =
-    activeSection === 0 || activeSection === 2 || activeSection === 3;
+    activeSection === 0 ||
+    activeSection === 2 ||
+    activeSection === 3 ||
+    pathname.includes("/vehicles/");
 
   const menuItems = siteConfig.navItems.map((item) => ({
     ...item,
@@ -130,7 +133,7 @@ export const Navbar = () => {
         </Button>
         <Link href="/">
           <Logo
-            className="w-36 lg:w-52 h-auto cursor-pointer hover:scale-105 transition-all duration-300"
+            className="w-36 lg:w-52 h-auto cursor-pointer text-white hover:scale-105 transition-all duration-300"
             isDarkBackground={isDarkBackground}
           />
         </Link>
