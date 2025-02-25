@@ -36,7 +36,6 @@ export default function Main() {
           description="Explorez notre collection exclusive de véhicules haut de gamme pour des occasions spéciales et des trajets"
           forwardedRef={(el) => (sectionRefs.current[0] = el)}
           highlightedText="vos rêves"
-          isHomePage={true}
           title="Louez la voiture de"
         />
         <VehiclesSection forwardedRef={(el) => (sectionRefs.current[1] = el)} />

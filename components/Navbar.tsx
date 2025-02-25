@@ -95,6 +95,13 @@ export const Navbar = () => {
     },
   }));
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.location.reload();
+    }
+  };
+
   return (
     <>
       <nav
@@ -133,7 +140,7 @@ export const Navbar = () => {
             />
           </svg>
         </Button>
-        <Link href="/">
+        <Link href="/" onClick={handleLogoClick}>
           <Logo
             className="w-36 lg:w-52 h-auto cursor-pointer text-white hover:scale-105 transition-all duration-300"
             isDarkBackground={isDarkBackground}

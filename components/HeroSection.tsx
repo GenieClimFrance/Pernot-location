@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { BsArrowRight } from "react-icons/bs";
+import { BsChevronDoubleDown } from "react-icons/bs";
 import { clsx } from "clsx";
-import Link from "next/link";
+import { motion } from "framer-motion";
 
 import { BlurFade } from "./ui/blur-fade";
 
@@ -11,7 +11,6 @@ interface HeroSectionProps {
   title: string;
   highlightedText: string;
   description?: string;
-  isHomePage?: boolean;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -20,7 +19,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   highlightedText,
   description,
-  isHomePage,
 }) => {
   return (
     <section
@@ -34,7 +32,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         // Responsive
         "lg:items-start lg:px-40 lg:pr-[20rem] lg:pb-10",
         // Text
-        "text-white"
+        "text-white",
+        // Position relative pour le positionnement de la flèche
+        "relative"
       )}
     >
       <BlurFade delay={0.25} duration={0.5}>
@@ -67,32 +67,45 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             // Typography
             "text-xl font-georgia",
             // Spacing
-            "mb-8"
+            "mb-16"
           )}
         >
           {description}
-          {isHomePage && (
-            <span className="inline-flex items-center">
-              d&apos;exceptions.
-              <Link
-                className={clsx(
-                  // Typography & Colors
-                  "text-primary text-4xl",
-                  // Spacing
-                  "ml-4",
-                  // Hover effects
-                  "hover:translate-x-2",
-                  // Transition
-                  "transition-all duration-300"
-                )}
-                href="/vehicle"
-              >
-                <BsArrowRight />
-              </Link>
-            </span>
-          )}
         </p>
       </BlurFade>
+
+      {/* Flèche de défilement animée */}
+      <motion.div
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        initial={{ opacity: 0, y: -10 }}
+        transition={{
+          duration: 0.5,
+          delay: 1,
+        }}
+      >
+        <motion.div
+          animate={{
+            y: [0, 10, 0],
+          }}
+          className="flex flex-col items-center"
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+        >
+          <span className="text-xs font-roboto uppercase text-white">
+            Scroll
+          </span>
+
+          <BsChevronDoubleDown className="text-primary text-2xl" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
