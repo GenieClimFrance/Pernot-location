@@ -55,8 +55,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
         "bg-white snap-start",
         "pt-24",
         "lg:pb-10",
-        "xl:pt-32",
-        "2xl:pt-40"
+        "xl:pt-32"
       )}
     >
       <div className={clsx("flex flex-col", "px-4", "lg:px-2")}>
@@ -109,7 +108,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "h-[10rem] w-[10rem]",
                     "lg:h-[15rem] lg:w-[15rem]",
                     "xl:h-[18rem] xl:w-[18rem]",
-                    "2xl:h-[25rem] 2xl:w-[25rem]"
+                    "2xl:h-[22rem] 2xl:w-[22rem]"
                   )}
                   href={`/vehicle?brand=${car.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${car.image})` }}
@@ -253,7 +252,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
           >
             <h3
               className={clsx(
-                "text-lg font-semibold font-roboto uppercase",
+                "text-lg font-semibold font-roboto uppercase text-white",
                 "mb-2 mt-6 ml-6",
                 "w-60",
                 "border-primary",

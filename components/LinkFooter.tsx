@@ -46,6 +46,18 @@ function LinkFooter() {
             {item.label}
           </Link>
         ))}
+        <Link
+          className="text-white font-roboto font-bold uppercase text-lg hover:text-primary transition-colors duration-300"
+          href="/mentions-legales"
+        >
+          Mentions légales
+        </Link>
+        <Link
+          className="text-white font-roboto font-bold uppercase text-lg hover:text-primary transition-colors duration-300"
+          href="/cgv"
+        >
+          CGV
+        </Link>
       </div>
       <div className="flex flex-col gap-4">
         {cars.map((car) => (

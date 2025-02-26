@@ -67,20 +67,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             // Typography
             "text-xl font-georgia",
             // Spacing
-            "mb-16"
+            "mb-24 md:mb-16"
           )}
         >
           {description}
         </p>
       </BlurFade>
 
-      {/* Flèche de défilement animée */}
       <motion.div
         animate={{
           opacity: 1,
           y: 0,
         }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 lg:left-1/2 lg:transform lg:-translate-x-1/2 w-full lg:w-auto flex justify-center items-center"
         initial={{ opacity: 0, y: -10 }}
         transition={{
           duration: 0.5,

@@ -104,10 +104,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 flex gap-3 justify-between items-center p-5 lg:p-6
-        }`}
-      >
+      <nav className="fixed top-0 left-0 right-0 z-40 flex gap-3 justify-between items-center p-5 lg:p-6 bg-transparent">
         <Button
           className="bg-transparent w-fit h-fit"
           onPress={() => handleOpen("full")}
@@ -142,26 +139,26 @@ export const Navbar = () => {
         </Button>
         <Link href="/" onClick={handleLogoClick}>
           <Logo
-            className="w-36 lg:w-52 h-auto cursor-pointer text-white hover:scale-105 transition-all duration-300"
+            className="w-36 lg:w-52 h-auto cursor-pointer hover:scale-105 transition-all duration-300"
             isDarkBackground={isDarkBackground}
           />
         </Link>
         <div className="flex gap-3">
           <Link href="tel:+33769762636">
             <FaPhoneAlt
-              className={`text-4xl border-primary border-1 p-2 transition-all duration-300 ${
+              className={`text-4xl border-[#D9470B] border p-2 transition-all duration-300 ${
                 isDarkBackground
-                  ? "text-white hover:bg-primary hover:text-black"
-                  : "text-black hover:bg-primary hover:text-white"
+                  ? "text-[#F9F9F9] hover:bg-[#D9470B] hover:text-black"
+                  : "text-black hover:bg-[#D9470B] hover:text-[#F9F9F9]"
               }`}
             />
           </Link>
           <Link href="mailto:contact@plpernotlocation.fr">
             <IoMailSharp
-              className={`text-4xl border-primary border-1 p-2 transition-all duration-300 ${
+              className={`text-4xl border-[#D9470B] border p-2 transition-all duration-300 ${
                 isDarkBackground
-                  ? "text-white hover:bg-primary hover:text-black"
-                  : "text-black hover:bg-primary hover:text-white"
+                  ? "text-[#F9F9F9] hover:bg-[#D9470B] hover:text-black"
+                  : "text-black hover:bg-[#D9470B] hover:text-[#F9F9F9]"
               }`}
             />
           </Link>
@@ -173,7 +170,7 @@ export const Navbar = () => {
             "absolute left-0 top-0 m-6 ml-12 lg:mt-8 text-2xl text-white hover:bg-transparent hover:bg-primary border-primary border-1 p-1 w-fit rounded-none cursor-pointer transition-all duration-300",
           base: "border-none bg-transparent",
           backdrop: "bg-black/80",
-          wrapper: "overflow-hidden",
+          wrapper: "overflow-hidden h-[100vh] inset-0",
           body: "p-0",
         }}
         isOpen={isOpen}
@@ -194,7 +191,7 @@ export const Navbar = () => {
         size={size}
         onClose={onClose}
       >
-        <ModalContent className="text-white bg-[url('/bg-menu.png')] bg-cover bg-center bg-no-repeat ">
+        <ModalContent className="text-white bg-[url('/bg-menu.png')] bg-cover bg-center bg-no-repeat h-full inset-0">
           <nav className="flex gap-3 justify-between ml-auto lg:ml-24 items-center p-5 lg:p-6">
             <Logo
               className="w-36 lg:w-52 h-auto mr-2 cursor-pointer hover:scale-105 lg:mx-auto transition-all duration-300"
@@ -205,7 +202,7 @@ export const Navbar = () => {
               <IoMailSharp className="text-4xl border-primary border-1 p-2 text-white hover:bg-primary cursor-pointer transition-all duration-300" />
             </div>
           </nav>
-          <ModalBody className="p-8 lg:gap-12 flex flex-col justify-center items-center">
+          <ModalBody className="p-8 lg:gap-12 flex flex-col justify-center items-center h-full">
             <article className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-12">
               <header className="flex flex-col gap-6">
                 {menuItems.map((item) => (
