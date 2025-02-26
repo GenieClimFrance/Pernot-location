@@ -24,6 +24,7 @@ export type Vehicles = {
   isNew: boolean;
   features?: string[];
   equipments?: Equipments[];
+  deposit?: number;
 };
 
 export type Equipments = {
@@ -186,6 +187,7 @@ export const vehicles: Vehicles[] = [
 
       return found;
     }),
+    deposit: 15000,
   },
   {
     id: 2,
@@ -241,6 +243,7 @@ export const vehicles: Vehicles[] = [
 
       return found;
     }),
+    deposit: 15000,
   },
   {
     id: 3,
@@ -298,6 +301,7 @@ export const vehicles: Vehicles[] = [
 
       return found;
     }),
+    deposit: 10000,
   },
   {
     id: 4,
@@ -353,6 +357,7 @@ export const vehicles: Vehicles[] = [
 
       return found;
     }),
+    deposit: 7500,
   },
   // {
   //   id: 5,

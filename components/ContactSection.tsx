@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+
 import clsx from "clsx";
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
@@ -6,9 +7,9 @@ import { Checkbox } from "@heroui/checkbox";
 
 import { BlurFade } from "./ui/blur-fade";
 import { TextAnimate } from "./ui/text-animate";
+import Calendar from "./Calendar";
 
 import { vehicles } from "@/data/vehicle";
-
 interface ContactSectionProps {
   forwardedRef: (el: HTMLElement | null) => void;
 }
@@ -139,27 +140,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
                 type="email"
               />
             </div>
-            <div>
-              <label className="uppercase" htmlFor="date">
-                Date de départ
-              </label>
-              <input
-                className="bg-transparent border-b border-white focus w-full h-10"
-                data-placeholder="Date de départ*"
-                id="date"
-                type="date"
-              />
-            </div>
-            <div>
-              <label className="uppercase" htmlFor="date">
-                Date de retour
-              </label>
-              <input
-                className="bg-transparent border-b border-white focus w-full h-10"
-                data-placeholder="Date de retour*"
-                id="date"
-                type="date"
-              />
+            <div className="col-span-2 mb-4">
+              <Calendar />
             </div>
           </div>
           <div ref={dropdownRef} className="relative w-full mb-4">

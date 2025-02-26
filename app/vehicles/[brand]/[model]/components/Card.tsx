@@ -4,6 +4,13 @@ import { useState } from "react";
 import { Checkbox } from "@heroui/react";
 import Link from "next/link";
 
+import { vehicles } from "@/data/vehicle";
+
+// Créer une fonction utilitaire pour le formatage
+const formatNumber = (number: number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+};
+
 function Card({
   price,
   priceWithDriver,
@@ -50,10 +57,10 @@ function Card({
         </button>
       </div>
 
-      <h3 className="text-xl mb-4 flex flex-col lg:pb-4">
+      <h3 className="text-xl flex flex-col">
         <span>à partir de</span>
         <span className="font-bold text-4xl">
-          {getPriceForDuration()}€ /{" "}
+          {formatNumber(getPriceForDuration())}€ /{" "}
           {selectedDuration === "week"
             ? "semaine"
             : selectedDuration === "weekend"
@@ -61,6 +68,14 @@ function Card({
               : "jour"}
         </span>
       </h3>
+      <p className="text-secondary font-bold text-sm lg:text-base mb-4">
+        Caution uniquement sans chauffeur par CB :{" "}
+        {vehicles
+          .find((vehicle) => vehicle.id === 1)
+          ?.deposit?.toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
+        €
+      </p>
 
       <div className="flex items-center gap-8 mb-4 font-roboto">
         <Checkbox
