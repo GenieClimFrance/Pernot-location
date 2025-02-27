@@ -3,7 +3,6 @@ import Image from "next/image";
 import clsx from "clsx";
 import Link from "next/link";
 
-import { BlurFade } from "./ui/blur-fade";
 import { BoxReveal } from "./ui/box-reveal";
 
 interface VehicleSectionProps {
@@ -134,14 +133,20 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
           </div>
         </div>
       </div>
-      <div className={clsx("flex flex-col", "px-4", "lg:px-2 lg:pr-0")}>
-        <div className={clsx("w-full", "pl-4", "lg:pl-[4.5rem]")}>
+      <div
+        className={clsx(
+          "flex flex-col",
+          "px-4",
+          "lg:px-2 lg:pr-0 mb-10 md:mb-0"
+        )}
+      >
+        <div className={clsx("w-full", "lg:pl-[4rem]")}>
           <BoxReveal boxColor="#D9470B" duration={0.75}>
             <h2
               className={clsx(
                 "text-2xl font-bold font-roboto uppercase",
                 "text-secondary text-left",
-                "mt-10 mb-6",
+                "mt-10 mb-6 ml-4 md:ml-0",
                 "lg:mt-16"
               )}
             >
@@ -166,11 +171,11 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
         >
           <div
             className={clsx(
-              "grid grid-cols-2 md:grid-cols-2",
-              "gap-2 px-2",
-              "lg:gap-12 lg:flex",
-              "justify-items-center items-center",
-              "w-full lg:pr-0"
+              "grid grid-cols-2",
+              "gap-2 md:gap-12 px-2",
+              "lg:grid-cols-4 lg:grid-flow-row",
+              "items-center",
+              "lg:pr-0 lg:pl-0"
             )}
           >
             {moto.map((moto, index) => (
@@ -207,62 +212,29 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                 </Link>
               </BoxReveal>
             ))}
-            <div className={clsx("hidden", "lg:block lg:flex-1")}>
-              <BlurFade inView delay={0.25 * 2} duration={0.5}>
-                <div
-                  className={clsx(
-                    "flex flex-col bg-black",
-                    'bg-[url("/incoming-desktop.png")] bg-right bg-no-repeat',
-                    "[filter:drop-shadow(-4px_4px_0px_theme(colors.primary))]",
-                    "h-[15rem]",
-                    "xl:h-[18rem]",
-                    "2xl:h-[25rem]",
-                    "w-full"
-                  )}
-                >
-                  <h3
-                    className={clsx(
-                      "text-white text-lg font-semibold font-roboto uppercase",
-                      "mb-2 mt-6 ml-6",
-                      "w-60",
-                      "xl:text-2xl xl:w-80",
-                      "2xl:text-3xl 2xl:w-96",
-                      "border-primary",
-                      "after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1"
-                    )}
-                  >
-                    D&apos;autres véhicules sont à venir...
-                  </h3>
-                </div>
-              </BlurFade>
+            <div className="col-span-2 w-full md:col-span-2">
+              <Link
+                className={clsx(
+                  "bg-[url('/incoming-desktop.png')] bg-cover bg-center text-white font-roboto uppercase font-bold rounded-none",
+                  "h-[10rem] w-full px-4 pt-2",
+                  "lg:h-[15rem] lg:w-full",
+                  "xl:h-[18rem] xl:w-full xl:pl-10 xl:pt-8",
+                  "2xl:h-[25rem] 2xl:w-full 2xl:pl-24",
+                  "flex justify-start items-start",
+                  "mt-8 lg:mt-0",
+                  "shadow-md",
+                  "transition-all duration-300 ease-in-out",
+                  "hover:[filter:drop-shadow(-4px_4px_0px_theme(colors.primary))] hover:text-primary"
+                )}
+                href="/vehicles"
+              >
+                <span className="text-lg lg:text-xl font-roboto uppercase mt-2 after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1">
+                  Voir tous nos véhicules
+                </span>
+              </Link>
             </div>
           </div>
         </div>
-      </div>
-      <div className="lg:hidden">
-        <BlurFade inView delay={0.25 * 2} duration={0.5}>
-          <div
-            className={clsx(
-              "flex flex-col",
-              'bg-[url("/incoming.png")] bg-cover bg-center',
-              "mt-5 ml-8 mb-10",
-              "h-[10rem]",
-              "[filter:drop-shadow(-4px_4px_0px_theme(colors.primary))]"
-            )}
-          >
-            <h3
-              className={clsx(
-                "text-lg font-semibold font-roboto uppercase text-white",
-                "mb-2 mt-6 ml-6",
-                "w-60",
-                "border-primary",
-                "after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1"
-              )}
-            >
-              D&apos;autres véhicules sont à venir...
-            </h3>
-          </div>
-        </BlurFade>
       </div>
     </section>
   );
