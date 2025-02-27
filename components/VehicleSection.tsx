@@ -50,7 +50,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
     <section
       ref={forwardedRef}
       className={clsx(
-        "min-h-screen flex flex-col",
+        "min-h-screen flex flex-col lg:items-center",
         "bg-white snap-start",
         "pt-24",
         "lg:pb-10",
@@ -58,14 +58,13 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
       )}
     >
       <div className={clsx("flex flex-col", "px-4", "lg:px-2")}>
-        <div className={clsx("w-full", "pl-4", "lg:pl-[4rem]")}>
+        <div className={clsx("w-full")}>
           <BoxReveal boxColor="#D9470B" duration={0.75}>
             <h2
               className={clsx(
                 "text-2xl font-bold font-roboto uppercase",
                 "text-secondary text-left",
-                "mb-6",
-                "2xl:text-3xl"
+                "mb-6 pl-4 md:pl-0"
               )}
             >
               Nos voitures de{" "}
@@ -84,7 +83,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
           className={clsx(
             "flex",
             "justify-center",
-            "lg:justify-start lg:pl-16",
+            "lg:justify-start",
             "w-full"
           )}
         >
@@ -105,9 +104,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "flex flex-col justify-end items-center",
                     "px-6 shadow-md vehicle-hover",
                     "h-[10rem] w-[10rem]",
-                    "lg:h-[15rem] lg:w-[15rem]",
-                    "xl:h-[18rem] xl:w-[18rem]",
-                    "2xl:h-[22rem] 2xl:w-[22rem]"
+                    "lg:h-[12rem] lg:w-[12rem]",
+                    "xl:h-[18rem] xl:w-[18rem]"
                   )}
                   href={`/vehicle?brand=${car.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${car.image})` }}
@@ -140,7 +138,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
           "lg:px-2 lg:pr-0 mb-10 md:mb-0"
         )}
       >
-        <div className={clsx("w-full", "lg:pl-[4rem]")}>
+        <div className={clsx("w-full")}>
           <BoxReveal boxColor="#D9470B" duration={0.75}>
             <h2
               className={clsx(
@@ -163,11 +161,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
           </BoxReveal>
         </div>
         <div
-          className={clsx(
-            "flex justify-center",
-            "lg:justify-start lg:pl-16",
-            "w-full"
-          )}
+          className={clsx("flex justify-center", "lg:justify-start", "w-full")}
         >
           <div
             className={clsx(
@@ -187,9 +181,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "flex flex-col justify-end items-center",
                     "px-6 shadow-md vehicle-hover",
                     "h-[10rem] w-[10rem]",
-                    "lg:h-[15rem] lg:w-[15rem]",
-                    "xl:h-[18rem] xl:w-[18rem]",
-                    "2xl:h-[25rem] 2xl:w-[25rem]"
+                    "lg:h-[12rem] lg:w-[12rem]",
+                    "xl:h-[18rem] xl:w-[18rem]"
                   )}
                   href={`/vehicle?brand=${moto.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${moto.image})` }}
@@ -217,9 +210,9 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                 className={clsx(
                   "bg-[url('/incoming-desktop.png')] bg-cover bg-center text-white font-roboto uppercase font-bold rounded-none",
                   "h-[10rem] w-full px-4 pt-2",
-                  "lg:h-[15rem] lg:w-full",
+                  "lg:h-[12rem] lg:w-full",
                   "xl:h-[18rem] xl:w-full xl:pl-10 xl:pt-8",
-                  "2xl:h-[25rem] 2xl:w-full 2xl:pl-24",
+                  "2xl:w-full",
                   "flex justify-start items-start",
                   "mt-8 lg:mt-0",
                   "shadow-md",
