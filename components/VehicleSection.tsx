@@ -226,7 +226,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                   "transition-all duration-300 ease-in-out",
                   "hover:[filter:drop-shadow(-4px_4px_0px_theme(colors.primary))] hover:text-primary"
                 )}
-                href="/vehicles"
+                href="/vehicle"
               >
                 <span className="text-lg lg:text-xl font-roboto uppercase mt-2 after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1">
                   Voir tous nos véhicules
