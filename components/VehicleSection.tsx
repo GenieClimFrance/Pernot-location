@@ -50,9 +50,9 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
     <section
       ref={forwardedRef}
       className={clsx(
-        "min-h-screen flex flex-col lg:items-center",
+        "min-h-screen flex flex-col lg:items-center 2xl:justify-center",
         "bg-white snap-start",
-        "pt-24",
+        "pt-24 lg:pt-32",
         "lg:pb-10",
         "xl:pt-32"
       )}
@@ -105,7 +105,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "px-6 shadow-md vehicle-hover",
                     "h-[10rem] w-[10rem]",
                     "lg:h-[12rem] lg:w-[12rem]",
-                    "xl:h-[18rem] xl:w-[18rem]"
+                    "xl:h-[18rem] xl:w-[18rem]",
+                    "2xl:h-[20rem] 2xl:w-[20rem]"
                   )}
                   href={`/vehicle?brand=${car.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${car.image})` }}
@@ -182,7 +183,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "px-6 shadow-md vehicle-hover",
                     "h-[10rem] w-[10rem]",
                     "lg:h-[12rem] lg:w-[12rem]",
-                    "xl:h-[18rem] xl:w-[18rem]"
+                    "xl:h-[18rem] xl:w-[18rem]",
+                    "2xl:h-[20rem] 2xl:w-[20rem]"
                   )}
                   href={`/vehicle?brand=${moto.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${moto.image})` }}
@@ -212,7 +214,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                   "h-[10rem] w-full px-4 pt-2",
                   "lg:h-[12rem] lg:w-full",
                   "xl:h-[18rem] xl:w-full xl:pl-10 xl:pt-8",
-                  "2xl:w-full",
+                  "2xl:h-[20rem] 2xl:w-full",
                   "flex justify-start items-start",
                   "mt-8 lg:mt-0",
                   "shadow-md",
@@ -221,7 +223,7 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                 )}
                 href="/vehicle"
               >
-                <span className="text-lg lg:text-xl font-roboto uppercase mt-2 after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1">
+                <span className="text-lg lg:text-xl xl:text-2xl font-roboto uppercase mt-2 after:content-[''] after:block after:h-[4px] after:bg-primary after:w-[3rem] after:mt-1">
                   Voir tous nos véhicules
                 </span>
               </Link>
