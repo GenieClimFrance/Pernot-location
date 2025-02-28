@@ -31,30 +31,32 @@ export default function VehicleDetails({ vehicle }: VehicleDetailsProps) {
   }, []);
 
   return (
-    <article className="bg-white min-h-screen pt-20 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-80">
+    <article className="bg-white min-h-screen pt-20 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-96">
       <section className="flex flex-col gap-10 lg:flex-row">
         <ImageGallery images={vehicle.images} modelName={vehicle.model} />
-        <aside className="flex flex-col gap-4 w-full lg:w-1/2">
+        <aside className="flex flex-col gap-4 w-full lg:w-1/2 lg:h-auto">
           <h1 className="text-3xl lg:text-4xl text-secondary font-bold mb-4 uppercase font-roboto">
             {vehicle.brand}{" "}
             <span className="text-primary text-nowrap">{vehicle.model}</span>
           </h1>
           <Tags vehicle={vehicle} />
-          <div className="text-lg lg:text-[1.2rem] lg:h-[20.5rem] lg:leading-[1.9rem] text-secondary font-georgia pt-4 leading-6">
-            {Array.isArray(vehicle.description) ? (
-              vehicle.description.map((desc, index) => (
-                <p key={index} className="pb-10">
-                  {desc}
-                </p>
-              ))
-            ) : (
-              <p>{vehicle.description}</p>
-            )}
+          <div className="text-lg lg:text-lg xl:text-xl text-secondary font-georgia pt-4 leading-6 flex-1 flex flex-col justify-between">
+            <div>
+              {Array.isArray(vehicle.description) ? (
+                vehicle.description.map((desc, index) => (
+                  <p key={index} className="pb-10">
+                    {desc}
+                  </p>
+                ))
+              ) : (
+                <p>{vehicle.description}</p>
+              )}
+            </div>
+            <div className="bg-secondary/80 h-px w-full" />
           </div>
-          <div className="bg-secondary/80 h-px w-full mt-8 lg:mt-1" />
         </aside>
       </section>
-      <section className="flex flex-col gap-10 lg:flex-row mt-10">
+      <section className="flex flex-col gap-10 lg:flex-row md:mt-10">
         <Card price={vehicle.price} priceWithDriver={vehicle.priceWithDriver} />
         <div className="flex flex-col gap-10 lg:w-1/2">
           <Features features={vehicle.features} model={vehicle.model} />

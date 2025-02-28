@@ -22,10 +22,10 @@ export default function ImageGallery({ images, modelName }: ImageGalleryProps) {
   };
 
   return (
-    <section className="flex flex-col gap-6 max-w-6xl mt-14 mb-5 lg:w-1/2 lg:mt-0">
+    <section className="flex flex-col gap-3 max-w-6xl mt-14  lg:w-1/2 lg:mt-0">
       <button
         aria-label={`Zoomer sur ${modelName}`}
-        className="relative w-full h-[300px] cursor-zoom-in"
+        className="relative w-full h-[200px] lg:h-[300px] xl:h-[400px] cursor-zoom-in"
         type="button"
         onClick={toggleZoom}
       >
@@ -33,7 +33,7 @@ export default function ImageGallery({ images, modelName }: ImageGalleryProps) {
           fill
           priority
           alt={`${modelName} principal`}
-          className="object-cover"
+          className="object-cover object-bottom"
           src={mainImage}
         />
       </button>
@@ -61,19 +61,19 @@ export default function ImageGallery({ images, modelName }: ImageGalleryProps) {
           </div>
         </div>
       )}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-3 w-full">
         {thumbnails.map((image) => (
           <button
             key={image}
             aria-label={`Voir ${modelName} en grand`}
-            className="relative w-full h-[6.25rem] md:h-[9.5rem] cursor-pointer transition-transform hover:scale-105"
+            className="relative w-full h-[5rem] md:h-[7rem] cursor-pointer transition-transform hover:scale-105"
             type="button"
             onClick={() => handleImageClick(image)}
           >
             <Image
               fill
               alt={`${modelName} miniature`}
-              className="object-cover"
+              className="object-cover w-full"
               src={image}
             />
           </button>
