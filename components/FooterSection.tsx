@@ -15,7 +15,6 @@ const FooterSection: React.FC<FooterSectionProps> = ({ forwardedRef }) => {
         <SliderFooter />
       </div>
       <Footer />
-      <div className="h-10 bg-primary" />
     </section>
   );
 };

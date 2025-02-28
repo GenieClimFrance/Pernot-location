@@ -191,7 +191,7 @@ export const Navbar = () => {
         size={size}
         onClose={onClose}
       >
-        <ModalContent className="text-white bg-[url('/bg-menu.png')] bg-cover bg-center bg-no-repeat h-full inset-0">
+        <ModalContent className="text-white bg-[url('/bg-menu.png')] bg-cover bg-center bg-no-repeat h-full rounded-none inset-0">
           <nav className="flex gap-3 justify-between ml-auto lg:ml-24 items-center p-5 lg:p-6">
             <Logo
               className="w-36 lg:w-52 h-auto mr-2 cursor-pointer hover:scale-105 lg:mx-auto transition-all duration-300"
@@ -203,7 +203,7 @@ export const Navbar = () => {
             </div>
           </nav>
           <ModalBody className="p-8 lg:gap-12 flex flex-col justify-center items-center h-full">
-            <article className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-12">
+            <article className="lg:flex lg:flex-row lg:justify-center lg:items-center lg:gap-20 2xl:gap-32">
               <header className="flex flex-col gap-6">
                 {menuItems.map((item) => (
                   <Link
@@ -218,7 +218,7 @@ export const Navbar = () => {
                   </Link>
                 ))}
               </header>
-              <div className="w-full h-1 lg:w-1 lg:h-full bg-primary my-5" />
+              <div className="w-full h-1 lg:w-1 lg:h-full bg-primary my-10" />
               <div className="w-full lg:w-[400px] xl:w-[500px] 2xl:w-[600px]">
                 {isDesktop ? (
                   <div className="h-[200px] w-full">

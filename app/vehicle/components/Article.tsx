@@ -71,7 +71,7 @@ function Article({ forwardedRef, _initialBrand }: ArticleProps) {
   return (
     <article
       ref={forwardedRef}
-      className="snap-section bg-white flex flex-col gap-4 lg:pb-4 md:px-10"
+      className="snap-section bg-white flex flex-col gap-4 lg:pb-4 md:px-10 2xl:px-32 justify-center"
     >
       <section className="flex flex-col lg:flex-row gap-4 lg:gap-10 p-4 pt-24 lg:pt-32 bg-white w-full overflow-y-auto 2xl:px-20">
         <Filter

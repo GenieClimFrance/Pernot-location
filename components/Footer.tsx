@@ -27,7 +27,7 @@ function Footer() {
           "py-10 px-8"
         )}
       >
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mt-10 lg:pb-10 lg:px-28">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center lg:mt-10 lg:pb-10 lg:px-28 2xl:px-60">
           <div className="container mx-auto">
             <Image
               alt="Logo"

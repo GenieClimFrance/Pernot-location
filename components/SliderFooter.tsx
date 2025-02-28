@@ -15,8 +15,8 @@ function SliderFooter() {
   const texts = ["votre mariage", "vos événements", "votre plaisir"];
 
   return (
-    <div className="relative lg:pt-[4rem] 2xl:pt-[5rem]">
-      <div className="absolute z-10 p-6 text-white lg:w-1/2 lg:ml-10 lg:mt-10">
+    <div className="relative lg:pt-[4rem] 2xl:pt-16">
+      <div className="absolute z-10 p-6 text-white lg:w-1/2 2xl:w-1/3 lg:ml-10 lg:mt-10 2xl:ml-60 2xl:mt-16">
         <h2 className="text-3xl lg:text-4xl font-bold font-roboto uppercase">
           Choisissez l&apos;élégance et le prestige pour{" "}
           <span className="text-3xl lg:text-4xl inline-block text-nowrap font-roboto font-bold mb-4 mt-2 uppercase relative">
@@ -57,13 +57,13 @@ function SliderFooter() {
         }}
       >
         <SwiperSlide>
-          <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/mariage.png')] bg-cover bg-center" />
+          <div className="h-80 lg:h-96 2xl:h-[29rem] 3xl:h-[40rem] bg-[url('../public/footer/mariage.png')] bg-cover bg-bottom" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/event.png')] bg-cover bg-center" />
+          <div className="h-80 lg:h-96 2xl:h-[29rem] 3xl:h-[40rem] bg-[url('../public/footer/event.png')] bg-cover bg-bottom" />
         </SwiperSlide>
         <SwiperSlide>
-          <div className="h-80 lg:h-96 2xl:h-[35rem] bg-[url('../public/footer/pleasure.png')] bg-cover bg-center" />
+          <div className="h-80 lg:h-96 2xl:h-[29rem] 3xl:h-[40rem] bg-[url('../public/footer/pleasure.png')] bg-cover bg-bottom" />
         </SwiperSlide>
       </Swiper>
     </div>

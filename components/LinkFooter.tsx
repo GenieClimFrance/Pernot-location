@@ -35,7 +35,7 @@ function LinkFooter() {
   ];
 
   return (
-    <div className="flex flex-col gap-4 mt-10 lg:flex-row lg:items-start lg:justify-between lg:px-28">
+    <div className="flex flex-col gap-4 mt-10 lg:flex-row lg:items-start lg:justify-between lg:px-28 2xl:px-60">
       <div className="flex flex-col gap-4">
         {footerItem.map((item) => (
           <Link
@@ -92,7 +92,7 @@ function LinkFooter() {
           className="text-white font-roboto font-bold uppercase text-lg hover:text-primary transition-colors duration-300"
           href="mailto:contact@plpernotlocation.fr"
         >
-          contact@plpernotlocation.fr
+          contact@pernotlocation.fr
         </a>
         <p className="text-white font-roboto font-bold uppercase text-lg">
           7 rue victor hugo,{" "}

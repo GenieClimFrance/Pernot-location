@@ -9,7 +9,7 @@ function Cards({ vehicle }: { vehicle: Vehicles }) {
       flex flex-col gap-4 
       bg-[url('/bg-cards.webp')] bg-cover bg-center bg-no-repeat 
       font-roboto text-white
-      h-full lg:w-full lg:max-h-[25rem] 
+      h-full lg:w-full 2xl:max-h-[25rem] 
       hover:scale-105 transition-all duration-300
     "
     >

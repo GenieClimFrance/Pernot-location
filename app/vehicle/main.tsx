@@ -18,21 +18,16 @@ export default function Main() {
   const brandFilter = searchParams.get("brand");
 
   useEffect(() => {
-    // Forcer la section 0 à être active au chargement
     setActiveSection(0);
-  }, []); // Exécuté une seule fois au montage
+  }, []);
 
   useEffect(() => {
     setActiveSection(activeSection);
   }, [activeSection, setActiveSection]);
 
-  // Ajoutez cet effet pour définir le filtre initial
   useEffect(() => {
     if (brandFilter && sectionRefs.current[1]) {
-      // Faire défiler jusqu'à la section des véhicules
       sectionRefs.current[1]?.scrollIntoView({ behavior: "smooth" });
-      // Vous devrez créer une fonction pour mettre à jour le filtre
-      // Cette fonction devra être passée à Article
     }
   }, [brandFilter]);
 
@@ -44,7 +39,7 @@ export default function Main() {
     <main className="h-screen overflow-hidden">
       <Navigation
         currentSection={activeSection}
-        totalSections={4}
+        totalSections={3}
         onNavigate={scrollToSection}
       />
       <div className="snap-container">
@@ -52,7 +47,6 @@ export default function Main() {
           backgroundImage="bg-[url('/hero-2.png')]"
           forwardedRef={(el) => (sectionRefs.current[0] = el)}
           highlightedText="véhicules"
-          isHomePage={false}
           title="Découvrez notre sélection de"
         />
         <Article

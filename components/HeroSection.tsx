@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         "justify-end items-center",
         "px-6 pt-20",
         // Responsive
-        "lg:items-start lg:px-40 lg:pr-[20rem] lg:pb-10",
+        "lg:items-start lg:px-40 lg:pr-[20rem] lg:pb-10 2xl:pl-[20rem] 2xl:pb-28",
         // Text
         "text-white",
         // Position relative pour le positionnement de la flèche
@@ -41,7 +41,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <h1
           className={clsx(
             // Typography
-            "text-4xl lg:text-6xl font-black font-roboto uppercase",
+            "text-4xl lg:text-6xl font-black uppercase font-roboto",
             // Spacing
             "mb-4",
             // Line height

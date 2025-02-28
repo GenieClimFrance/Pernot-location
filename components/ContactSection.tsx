@@ -62,7 +62,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
       ref={forwardedRef}
       className={clsx(
         // Layout
-        "snap-section flex flex-col lg:pl-32 xl:pl-40 2xl:pl-60",
+        "snap-section flex flex-col lg:pl-32 xl:pl-40 2xl:pl-[26rem]",
         "justify-center items-start ",
         // Background
         'bg-[url("/bg-form.webp")] bg-cover bg-center lg:bg-[url("/bg-form-dsktp.webp")]',
