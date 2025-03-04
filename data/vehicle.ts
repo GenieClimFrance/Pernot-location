@@ -243,7 +243,7 @@ export const vehicles: Vehicles[] = [
 
       return found;
     }),
-    deposit: 15000,
+    deposit: 10000,
   },
   {
     id: 3,
