@@ -80,7 +80,7 @@ export const Navbar = () => {
         item.label === "Nos voitures"
           ? "Nos voitures"
           : item.label === "Nos motos"
-            ? "Nos motos"
+            ? "Bientôt disponible"
             : item.label === "Contact"
               ? "Contactez-nous"
               : "Découvrez nos services",
