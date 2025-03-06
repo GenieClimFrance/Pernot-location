@@ -99,7 +99,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
         !formData.email ||
         !selectedVehicle ||
         !selectedDriver ||
-        selectedDates.length < 2 // Vérification des dates
+        selectedDates.length < 2
       ) {
         alert("Veuillez remplir tous les champs obligatoires");
 

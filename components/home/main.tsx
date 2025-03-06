@@ -33,7 +33,7 @@ export default function Main() {
       <div className="snap-container">
         <HeroSection
           backgroundImage="bg-[url('/hero.png')]"
-          description="Explorez notre collection exclusive de véhicules haut de gamme pour des occasions spéciales et des trajets"
+          description="Explorez notre collection exclusive de véhicules haut de gamme pour des occasions spéciales et des trajets d'exception."
           forwardedRef={(el) => (sectionRefs.current[0] = el)}
           highlightedText="vos rêves"
           title="Louez la voiture de"
