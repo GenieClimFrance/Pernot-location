@@ -190,8 +190,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                   href={`/vehicle?brand=${moto.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${moto.image})` }}
                 >
-                  <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl font-roboto">
+                  <div className="absolute inset-0 bg-black/90 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 flex pt-8 justify-center">
+                    <span className="text-white font-bold text-lg lg:text-2xl font-roboto">
                       Bientôt disponible
                     </span>
                   </div>

@@ -24,13 +24,13 @@ export default function Main() {
   };
 
   return (
-    <main className="h-screen overflow-hidden">
+    <main className="h-[100dvh] overflow-hidden">
       <Navigation
         currentSection={activeSection}
         totalSections={4}
         onNavigate={scrollToSection}
       />
-      <div className="snap-container">
+      <div className="snap-container h-[100dvh]">
         <HeroSection
           backgroundImage="bg-[url('/hero.png')]"
           description="Explorez notre collection exclusive de véhicules haut de gamme pour des occasions spéciales et des trajets d'exception."
