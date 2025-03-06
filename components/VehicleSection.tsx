@@ -184,14 +184,21 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                     "h-[10rem] w-[10rem]",
                     "lg:h-[12rem] lg:w-[12rem]",
                     "xl:h-[18rem] xl:w-[18rem]",
-                    "2xl:h-[20rem] 2xl:w-[20rem]"
+                    "2xl:h-[20rem] 2xl:w-[20rem]",
+                    "relative group"
                   )}
                   href={`/vehicle?brand=${moto.name.toLowerCase().replace(/\s+/g, "-")}`}
                   style={{ backgroundImage: `url(${moto.image})` }}
                 >
+                  <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-bold text-2xl font-roboto">
+                      Bientôt disponible
+                    </span>
+                  </div>
+
                   <Image
                     alt={moto.name}
-                    className="w-10 h-10"
+                    className="w-10 h-10 relative z-10"
                     height={100}
                     src={moto.logo}
                     width={100}
@@ -199,7 +206,8 @@ const VehiclesSection: React.FC<VehicleSectionProps> = ({ forwardedRef }) => {
                   <h3
                     className={clsx(
                       "text-lg text-nowrap text-white font-semibold font-roboto uppercase",
-                      "mb-2"
+                      "mb-2",
+                      "relative z-10"
                     )}
                   >
                     {moto.name}

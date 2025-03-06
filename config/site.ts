@@ -35,11 +35,11 @@ export const siteConfig = {
       icon: "FaFacebookF",
     },
     linkedin: {
-      url: "https://www.linkedin.com/company/plpernotlocation/",
+      url: "https://www.linkedin.com/company/pernotlocation/",
       icon: "FaLinkedinIn",
     },
     youtube: {
-      url: "https://www.youtube.com/@plpernotlocation",
+      url: "https://www.youtube.com/@pernotlocation",
       icon: "FaYoutube",
     },
   },

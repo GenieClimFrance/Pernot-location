@@ -102,7 +102,7 @@ function Card({
       <ul className="flex flex-col font-bold gap-4 mt-4">
         <li className="flex flex-row items-center gap-4">
           <IoMail className="w-8 h-8 bg-primary text-white p-1" />
-          <a className="lg:text-lg" href="mailto:contact@plpernotlocation.fr">
+          <a className="lg:text-lg" href="mailto:contact@pernotlocation.fr">
             contact@pernotlocation.fr
           </a>
         </li>

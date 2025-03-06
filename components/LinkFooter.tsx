@@ -90,7 +90,7 @@ function LinkFooter() {
         </a>
         <a
           className="text-white font-roboto font-bold uppercase text-lg hover:text-primary transition-colors duration-300"
-          href="mailto:contact@plpernotlocation.fr"
+          href="mailto:contact@pernotlocation.fr"
         >
           contact@pernotlocation.fr
         </a>

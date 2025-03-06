@@ -153,7 +153,7 @@ export const Navbar = () => {
               }`}
             />
           </Link>
-          <Link href="mailto:contact@plpernotlocation.fr">
+          <Link href="mailto:contact@pernotlocation.fr">
             <IoMailSharp
               className={`text-4xl border-[#D9470B] border p-2 transition-all duration-300 ${
                 isDarkBackground
@@ -242,7 +242,7 @@ export const Navbar = () => {
                         <h2 className="text-white font-roboto font-bold uppercase text-xl xl:text-3xl 2xl:text-4xl lg:mt-4">
                           Louez le véhicule de vos rêves sur{" "}
                           <span className="text-primary">
-                            PLPERNOTLOCATION.FR
+                            PERNOTLOCATION.FR
                           </span>
                         </h2>
                         <p className="text-white font-georgia text-lg mt-3 xl:text-2xl 2xl:text-2xl">
@@ -257,7 +257,7 @@ export const Navbar = () => {
                   <>
                     <h2 className="text-white font-roboto font-bold uppercase text-xl mt-4">
                       Louez le véhicule de vos rêves sur{" "}
-                      <span className="text-primary">PLPERNOTLOCATION.FR</span>
+                      <span className="text-primary">PERNOTLOCATION.FR</span>
                     </h2>
                     <p className="text-white font-georgia text-lg mt-3">
                       Explorez notre sélection de voitures de luxe et de

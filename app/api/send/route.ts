@@ -38,9 +38,9 @@ export async function POST(request: Request) {
     }
 
     const msg = {
-      to: process.env.RECIPIENT_EMAIL || "contact@plpernotlocation.fr",
+      to: process.env.RECIPIENT_EMAIL || "contact@pernotlocation.fr",
       from: {
-        email: process.env.SENDER_EMAIL || "contact@plpernotlocation.fr",
+        email: process.env.SENDER_EMAIL || "contact@pernotlocation.fr",
         name: "PL PERNOT LOCATION",
       },
       subject: `Nouvelle demande de réservation de ${nom} ${prenom}`,
