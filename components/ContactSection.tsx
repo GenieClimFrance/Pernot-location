@@ -159,11 +159,14 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
       className={clsx(
         // Layout
         "snap-section flex flex-col lg:pl-32 xl:pl-40 2xl:pl-[26rem]",
-        "justify-center items-start ",
+        "justify-center items-start",
+        // Spacing
+        "pt-20",
+        "py-16 px-10",
         // Background
         'bg-[url("/bg-form.webp")] bg-cover bg-center lg:bg-[url("/bg-form-dsktp.webp")]',
         // Text & Spacing
-        "text-white py-16 px-10"
+        "text-white"
       )}
       id="contact"
     >
