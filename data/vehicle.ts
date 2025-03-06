@@ -136,6 +136,7 @@ export const vehicles: Vehicles[] = [
     id: 1,
     brand: "Lamborghini",
     model: "Urus",
+    motor: "4.0 V8 650ch Biturbo",
     type: "car",
     thumbnail: "/cars/thumbnails/lamborghini-urus.png",
     description: [
@@ -307,6 +308,7 @@ export const vehicles: Vehicles[] = [
     id: 4,
     brand: "Porsche",
     model: "E-Cayenne",
+    motor: "Coupe Hybride V6 462ch",
     type: "car",
     thumbnail: "/cars/thumbnails/porsche-e-cayenne.png",
     description: [
