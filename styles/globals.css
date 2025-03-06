@@ -66,3 +66,19 @@ input[type="range"]:hover::-moz-range-thumb {
 .vehicle-details-page nav {
   @apply bg-secondary;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}

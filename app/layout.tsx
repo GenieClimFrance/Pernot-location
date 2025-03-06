@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="fr">
       <head />
-      <body className={`${roboto.variable} font-georgia`}>
+      <body className={`${roboto.variable} font-georgia scroll-smooth`}>
         <Providers>
           <SectionProvider>
             <Navbar />
