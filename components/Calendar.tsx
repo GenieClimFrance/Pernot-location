@@ -11,7 +11,11 @@ interface DateRange {
   to: Date | undefined;
 }
 
-function Calendar() {
+interface CalendarProps {
+  onChange: (dates: Date[]) => void;
+}
+
+const Calendar: React.FC<CalendarProps> = ({ onChange }) => {
   const [dateRange, setDateRange] = useState<DateRange>({
     from: undefined,
     to: undefined,
@@ -63,7 +67,6 @@ function Calendar() {
   const handleSelect = (value: any) => {
     if (!value) return;
 
-    // Convertir les dates du format CalendarDate au format Date standard
     const newRange = {
       from: value.start
         ? new Date(value.start.year, value.start.month - 1, value.start.day)
@@ -76,8 +79,9 @@ function Calendar() {
     setDateRange(newRange);
     setCalendarValue(value);
 
-    // Fermer le calendrier seulement si les deux dates sont sélectionnées
+    // Appeler onChange avec les dates sélectionnées
     if (newRange.from && newRange.to) {
+      onChange([newRange.from, newRange.to]);
       setIsCalendarOpen(false);
     }
   };
@@ -143,6 +147,6 @@ function Calendar() {
       )}
     </div>
   );
-}
+};
 
 export default Calendar;

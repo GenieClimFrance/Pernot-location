@@ -4,6 +4,8 @@ import clsx from "clsx";
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { Checkbox } from "@heroui/checkbox";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
 
 import { BlurFade } from "./ui/blur-fade";
 import { TextAnimate } from "./ui/text-animate";
@@ -26,6 +28,18 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
   const [isDriverOpen, setIsDriverOpen] = useState(false);
   const [selectedDriver, setSelectedDriver] = useState("");
   const driverDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Ajout des états pour les champs du formulaire
+  const [formData, setFormData] = useState({
+    name: "",
+    firstname: "",
+    phone: "",
+    email: "",
+    dates: [], // À adapter selon votre composant Calendar
+  });
+
+  // Ajout d'un état pour les dates
+  const [selectedDates, setSelectedDates] = useState<Date[]>([]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -56,6 +70,88 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Gestion des changements dans les champs
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  // Gestionnaire pour les dates
+  const handleDatesChange = (dates: Date[]) => {
+    setSelectedDates(dates);
+  };
+
+  // Gestion de la soumission du formulaire
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      // Validation des champs requis
+      if (
+        !formData.name ||
+        !formData.firstname ||
+        !formData.phone ||
+        !formData.email ||
+        !selectedVehicle ||
+        !selectedDriver ||
+        selectedDates.length < 2 // Vérification des dates
+      ) {
+        alert("Veuillez remplir tous les champs obligatoires");
+
+        return;
+      }
+
+      const selectedVehicleDetails = vehicles.find(
+        (v) => v.id.toString() === selectedVehicle
+      );
+      const vehicleString = `${selectedVehicleDetails?.brand} ${selectedVehicleDetails?.model} (${
+        selectedDriver === "with" ? "Avec chauffeur" : "Sans chauffeur"
+      })`;
+
+      const dataToSend = {
+        nom: formData.name,
+        prenom: formData.firstname,
+        telephone: formData.phone,
+        email: formData.email,
+        dateDepart: format(selectedDates[0], "dd MMMM yyyy", { locale: fr }),
+        dateRetour: format(selectedDates[1], "dd MMMM yyyy", { locale: fr }),
+        vehicule: vehicleString,
+      };
+
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Votre demande a été envoyée avec succès !");
+        // Réinitialisation du formulaire
+        setFormData({
+          name: "",
+          firstname: "",
+          phone: "",
+          email: "",
+          dates: [],
+        });
+        setSelectedVehicle("");
+        setSelectedDriver("");
+      } else {
+        throw new Error(result.message || "Erreur lors de l'envoi");
+      }
+    } catch {
+      alert("Une erreur est survenue. Veuillez réessayer.");
+    }
+  };
 
   return (
     <section
@@ -94,17 +190,20 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
         </p>
       </BlurFade>
       <BlurFade inView delay={0.25 * 3} duration={0.5}>
-        <form className="w-full max-w-md 2xl:max-w-xl">
+        <form className="w-full max-w-md 2xl:max-w-xl" onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="sr-only" htmlFor="name">
                 Nom
               </label>
               <input
+                required
                 className="input focus"
                 id="name"
                 placeholder="Nom*"
                 type="text"
+                value={formData.name}
+                onChange={handleInputChange}
               />
             </div>
             <div>
@@ -112,10 +211,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
                 Prénom
               </label>
               <input
+                required
                 className="input focus"
                 id="firstname"
                 placeholder="Prénom*"
                 type="text"
+                value={formData.firstname}
+                onChange={handleInputChange}
               />
             </div>
             <div className="mb-4">
@@ -123,10 +225,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
                 Téléphone
               </label>
               <input
+                required
                 className="input focus"
                 id="phone"
                 placeholder="Téléphone*"
                 type="text"
+                value={formData.phone}
+                onChange={handleInputChange}
               />
             </div>
             <div className="mb-4">
@@ -134,14 +239,17 @@ const ContactSection: React.FC<ContactSectionProps> = ({ forwardedRef }) => {
                 Email
               </label>
               <input
+                required
                 className="input focus"
                 id="email"
                 placeholder="Email*"
                 type="email"
+                value={formData.email}
+                onChange={handleInputChange}
               />
             </div>
             <div className="col-span-2 mb-4">
-              <Calendar />
+              <Calendar onChange={handleDatesChange} />
             </div>
           </div>
           <div ref={dropdownRef} className="relative w-full mb-4">
