@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Pernot location",
-  description: "Louez la voiture de vos rêves",
+  description:
+    "Louez des voitures de prestige chez PL Pernot Location. Profitez d’une sélection exclusive de motos et voitures sportives pour une expérience de conduite unique et inoubliable.",
   navItems: [
     {
       label: "Accueil",
