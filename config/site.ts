@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "PL location",
-  description: "PL location",
+  name: "Pernot location",
+  description: "Louez la voiture de vos rêves",
   navItems: [
     {
       label: "Accueil",
