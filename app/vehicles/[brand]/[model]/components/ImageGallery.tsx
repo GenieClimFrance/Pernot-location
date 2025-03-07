@@ -22,7 +22,7 @@ export default function ImageGallery({ images, modelName }: ImageGalleryProps) {
   };
 
   return (
-    <section className="flex flex-col gap-3 max-w-6xl mt-14  lg:w-1/2 lg:mt-0">
+    <section className="flex flex-col gap-3 max-w-6xl mt-4  lg:w-1/2 lg:mt-0">
       <button
         aria-label={`Zoomer sur ${modelName}`}
         className="relative w-full h-[200px] lg:h-[300px] xl:h-[400px] cursor-zoom-in"

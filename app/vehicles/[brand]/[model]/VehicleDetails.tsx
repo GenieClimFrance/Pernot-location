@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
+import { FaChevronLeft } from "react-icons/fa";
 
 import ImageGallery from "./components/ImageGallery";
 import Tags from "./components/Tags";
@@ -10,7 +12,6 @@ import Equipments from "./components/Equipments";
 import Spotlight from "./components/Spotlight";
 
 import { Vehicles } from "@/data/vehicle";
-
 interface VehicleDetailsProps {
   vehicle: Vehicles & {
     images: string[];
@@ -31,7 +32,24 @@ export default function VehicleDetails({ vehicle }: VehicleDetailsProps) {
   }, []);
 
   return (
-    <article className="bg-white min-h-screen pt-20 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-96">
+    <article className="bg-white min-h-screen pt-28 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-96">
+      <div className="flex items-center gap-2 mb-4 sm:mb-8">
+        <Link
+          className="flex items-center text-primary hover:text-primary/80 transition-colors"
+          href="/vehicle"
+        >
+          <FaChevronLeft className="text-primary md:text-xl mr-1" />
+          <span className="text-gray-500 text-base sm:text-xl uppercase font-roboto hover:text-primary hover:underline hover:underline-offset-4 transition-colors duration-300">
+            NOS VOITURES
+          </span>
+        </Link>
+        <span className="text-gray-500 text-xl flex items-center self-center">
+          •
+        </span>
+        <h1 className="text-black text-base sm:text-xl uppercase font-bold font-roboto">
+          {vehicle.brand} {vehicle.model}
+        </h1>
+      </div>
       <section className="flex flex-col gap-10 lg:flex-row">
         <ImageGallery images={vehicle.images} modelName={vehicle.model} />
         <aside className="flex flex-col mb-4 w-full lg:w-1/2 lg:h-auto">
