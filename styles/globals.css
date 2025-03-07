@@ -77,6 +77,16 @@ section {
   scroll-snap-stop: always;
 }
 
+/* Désactiver le snap-scroll pour les pages de détail */
+.no-snap-scroll {
+  scroll-snap-type: none;
+}
+
+.no-snap-scroll section {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+}
+
 @media (max-width: 768px) {
   html {
     scroll-snap-type: y proximity;

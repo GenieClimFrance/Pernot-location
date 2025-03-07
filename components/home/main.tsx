@@ -14,6 +14,24 @@ export default function Main() {
   const { activeSection, sectionRefs } = useIntersectionObserver();
   const { setActiveSection } = useSection();
 
+  useEffect(() => {
+    // Vérifier si nous devons défiler vers la section contact
+    const shouldScrollToContact = sessionStorage.getItem("scrollToContact");
+
+    if (shouldScrollToContact) {
+      // Supprimer l'information pour éviter de défiler à nouveau lors des visites futures
+      sessionStorage.removeItem("scrollToContact");
+
+      // Attendre que le DOM soit complètement chargé
+      setTimeout(() => {
+        const contactSection = document.getElementById("contact");
+
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 500); // Délai plus long pour s'assurer que tout est chargé
+    }
+  }, []);
   // Met à jour l'état de la section active dans le contexte
   useEffect(() => {
     setActiveSection(activeSection);

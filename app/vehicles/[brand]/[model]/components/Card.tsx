@@ -1,8 +1,9 @@
+"use client";
 import { FaPhone } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { useState } from "react";
 import { Checkbox } from "@heroui/react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { vehicles } from "@/data/vehicle";
 
@@ -20,6 +21,7 @@ function Card({
 }) {
   const [selectedDuration, setSelectedDuration] = useState("day");
   const [withDriver, setWithDriver] = useState(false);
+  const router = useRouter();
 
   const getPriceForDuration = () => {
     const currentPrice = withDriver ? priceWithDriver : price;
@@ -32,6 +34,16 @@ function Card({
       default:
         return currentPrice.day;
     }
+  };
+
+  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    // Stocker l'information que nous voulons défiler vers le contact
+    sessionStorage.setItem("scrollToContact", "true");
+
+    // Naviguer vers la page d'accueil
+    router.push("/");
   };
 
   return (
@@ -92,8 +104,11 @@ function Card({
       <p className="text-secondary uppercase font-bold text-lg lg:text-xl mt-4 lg:mt-8">
         Intéressé pour louer ce véhicule ?
       </p>
-      <button className=" bg-primary uppercase font-bold text-white w-full py-3 rounded-lg mt-4 lg:mb-4">
-        <Link href="/#contact">Soumettre une demande</Link>
+      <button
+        className="bg-primary uppercase font-bold text-white w-full py-3 rounded-lg mt-4 lg:mb-4"
+        onClick={handleContactClick}
+      >
+        Soumettre une demande
       </button>
       <div className="bg-secondary/80 h-px w-full mt-4" />
       <p className="text-secondary uppercase font-bold text-lg lg:text-xl mt-4 lg:mt-8">
