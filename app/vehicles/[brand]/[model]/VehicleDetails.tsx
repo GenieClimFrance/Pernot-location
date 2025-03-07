@@ -32,7 +32,7 @@ export default function VehicleDetails({ vehicle }: VehicleDetailsProps) {
   }, []);
 
   return (
-    <article className="container bg-white min-h-screen pt-28 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-96">
+    <article className="bg-white min-h-screen pt-28 px-8 lg:px-32 pb-10 lg:pt-40 2xl:px-96">
       <div className="flex items-center gap-2 mb-4 sm:mb-8">
         <Link
           className="flex items-center text-primary hover:text-primary/80 transition-colors"
