@@ -129,6 +129,16 @@ export const equipments: Equipments[] = [
     name: "Poignées chauffantes",
     icon: "/icon/poignees.svg",
   },
+  {
+    id: 20,
+    name: "Pack S-Line",
+    icon: "/icon/s.svg",
+  },
+  {
+    id: 21,
+    name: "Intérieur cuir",
+    icon: "/icon/cuir.svg",
+  },
 ];
 
 export const vehicles: Vehicles[] = [
@@ -195,7 +205,7 @@ export const vehicles: Vehicles[] = [
     brand: "Land rover",
     model: "Range Rover Sport",
     type: "car",
-    motor: "D250 MHEV Diesel",
+    motor: "SVR V8 5.0L 567ch",
     thumbnail: "/cars/thumbnails/range-rover-sport.png",
     description:
       "Découvrez le Range Rover Sport, le SUV qui incarne à la fois l'élégance britannique et la puissance tout-terrain. Ce modèle emblématique est conçu pour offrir une expérience de conduite raffinée, que vous soyez en ville ou sur des routes plus exigeantes. Avec son design audacieux et ses lignes racées, le Range Rover Sport attire tous les regards, tandis que ses performances impressionnantes et son confort de conduite en font le choix idéal pour des trajets inoubliables.",
@@ -361,8 +371,66 @@ export const vehicles: Vehicles[] = [
     }),
     deposit: 7500,
   },
+  {
+    id: 5,
+    brand: "Audi",
+    model: "Q5",
+    motor: "TDI 170 S-line",
+    type: "car",
+    thumbnail: "/cars/thumbnails/audi-Q5.png",
+    description: [
+      "L'Audi Q5 TDI 170 S-Line en boîte automatique est un SUV premium alliant élégance, performances et confort. Équipé d’un moteur diesel 2.0 TDI de 170 ch, il offre une conduite fluide et efficace, idéale pour les longs trajets comme pour la ville.",
+      "Son design sportif est renforcé par la finition S-Line, avec des jantes en alliage, une calandre distinctive et un habitacle raffiné mêlant cuir et finitions aluminium.",
+    ],
+    price: {
+      day: 900,
+      weekend: 1700,
+      week: 3600,
+    },
+    priceWithDriver: {
+      day: 700,
+      weekend: 1400,
+      week: 3200,
+    },
+    images: [
+      "/cars/audi-q5/1.webp",
+      "/cars/audi-q5/2.webp",
+      "/cars/audi-q5/3.webp",
+      "/cars/audi-q5/4.webp",
+    ],
+    passengers: 5,
+    fuelType: "Diesel",
+    transmission: "Automatique",
+    isNew: true,
+    carType: "SUV",
+    features: [
+      "Moteur diesel performant",
+      "Conduite fluide et efficace",
+      "Design sportif et élégant",
+      "Intérieur confortable et connecté",
+    ],
+    equipments: (
+      [
+        "Sièges chauffants",
+        "Caméra de recul",
+        "Toit ouvrant",
+        "Pack S-Line",
+        "Intérieur cuir",
+        "Radar de recul",
+      ] as const
+    ).map((name) => {
+      const found = equipments.find((eq) => eq.name === name);
+
+      if (!found) {
+        throw new Error(`L'équipement ${name} n'a pas été trouvé.`);
+      }
+
+      return found;
+    }),
+    deposit: 7500,
+  },
   // {
-  //   id: 5,
+  //   id: 6,
   //   brand: "Ducati",
   //   model: "Panigale V4 S",
   //   type: "motorcycle",

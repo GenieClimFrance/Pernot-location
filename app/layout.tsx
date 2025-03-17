@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Roboto } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Navbar } from "../components/Navbar";
 
@@ -8,7 +9,6 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { SectionProvider } from "@/context/SectionContext";
-
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
@@ -41,6 +41,7 @@ export default function RootLayout({
       <head />
       <body className={`${roboto.variable} font-georgia scroll-smooth`}>
         <Providers>
+          <Analytics />
           <SectionProvider>
             <Navbar />
             {children}

@@ -1,6 +1,6 @@
 function page() {
   return (
-    <div className="flex flex-col gap-6 px-20 pb-20 bg-secondary text-white pt-24 font-roboto">
+    <div className="flex flex-col min-h-screen gap-6 px-20 pb-20 bg-secondary text-white pt-24 font-roboto">
       <h1 className="text-4xl font-bold pt-20">Mentions légales</h1>
 
       <section>

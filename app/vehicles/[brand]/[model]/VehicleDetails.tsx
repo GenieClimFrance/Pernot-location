@@ -17,6 +17,9 @@ interface VehicleDetailsProps {
     images: string[];
     features: string[];
     equipments: { id: number; name: string; icon: string }[];
+    price: { day: number; weekend: number; week: number };
+    priceWithDriver: { day: number; weekend: number; week: number };
+    deposit: number;
   };
 }
 
@@ -78,7 +81,11 @@ export default function VehicleDetails({ vehicle }: VehicleDetailsProps) {
         </aside>
       </section>
       <section className="flex flex-col gap-10 lg:flex-row md:mt-10">
-        <Card price={vehicle.price} priceWithDriver={vehicle.priceWithDriver} />
+        <Card
+          deposit={vehicle.deposit}
+          price={vehicle.price}
+          priceWithDriver={vehicle.priceWithDriver}
+        />
         <div className="flex flex-col gap-10 lg:w-1/2">
           <Features features={vehicle.features} model={vehicle.model} />
           <Equipments equipments={vehicle.equipments} />

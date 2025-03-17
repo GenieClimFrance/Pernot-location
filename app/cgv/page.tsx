@@ -57,10 +57,10 @@ function page() {
             exigée pour une location avec chauffeur.
           </p>
           <ul className="list-disc pl-6 space-y-1">
-            <li>PORSCHE : 7 500 euros</li>
-            <li>LAMBORGHINI : 15 000 euros</li>
-            <li>AUDI : 10 000 euros</li>
-            <li>URUS : 15 000 euros</li>
+            <li>PORSCHE CAYENNE : 7 500 euros</li>
+            <li>LAMBORGHINI URUS : 15 000 euros</li>
+            <li>AUDI RS7 : 10 000 euros</li>
+            <li>RANGE ROVER : 10 000 euros</li>
           </ul>
         </div>
 

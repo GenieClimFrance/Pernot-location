@@ -5,8 +5,6 @@ import { useState } from "react";
 import { Checkbox } from "@heroui/react";
 import { useRouter } from "next/navigation";
 
-import { vehicles } from "@/data/vehicle";
-
 // Créer une fonction utilitaire pour le formatage
 const formatNumber = (number: number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -15,9 +13,11 @@ const formatNumber = (number: number) => {
 function Card({
   price,
   priceWithDriver,
+  deposit,
 }: {
   price: { day: number; weekend: number; week: number };
   priceWithDriver: { day: number; weekend: number; week: number };
+  deposit: number;
 }) {
   const [selectedDuration, setSelectedDuration] = useState("day");
   const [withDriver, setWithDriver] = useState(false);
@@ -82,11 +82,7 @@ function Card({
       </h3>
       <p className="text-secondary font-bold text-sm lg:text-base mb-4">
         Caution uniquement sans chauffeur par CB :{" "}
-        {vehicles
-          .find((vehicle) => vehicle.id === 1)
-          ?.deposit?.toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}
-        €
+        {deposit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}€
       </p>
 
       <div className="flex items-center gap-8 mb-4 font-roboto">
