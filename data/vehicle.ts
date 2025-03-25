@@ -285,7 +285,7 @@ export const vehicles: Vehicles[] = [
     ],
     passengers: 5,
     fuelType: "Essence",
-    transmission: "Manuelle",
+    transmission: "Automatique",
     isNew: true,
     carType: "Berline",
     features: [
