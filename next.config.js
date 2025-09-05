@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  // Suppression de output: "standalone" pour le développement
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -8,9 +8,19 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    unoptimized: true,
+    // Réactivation des optimisations d'images
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   reactStrictMode: true,
+  // Optimisations pour le développement
+  experimental: {
+    optimizePackageImports: ['@heroui/react', 'lucide-react', 'react-icons'],
+  },
 };
 
 module.exports = nextConfig;

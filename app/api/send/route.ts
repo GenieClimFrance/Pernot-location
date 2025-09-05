@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail";
+import * as brevo from "@getbrevo/brevo";
 
-const apiKey = process.env.SENDGRID_API_KEY;
-
-// Initialiser SendGrid seulement si la clé est présente
-if (apiKey) {
-  sgMail.setApiKey(apiKey);
+const apiKey = process.env.BREVO_API_KEY;
+if (!apiKey) {
+  console.warn("Clé API Brevo manquante");
 }
 
-interface SendGridErrorResponse {
+// Configuration Brevo
+const apiInstance = new brevo.TransactionalEmailsApi();
+apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, apiKey || "");
+
+interface BrevoErrorResponse {
   message: string;
   code: number;
   response?: {
@@ -37,35 +39,36 @@ export async function POST(request: Request) {
       );
     }
 
-    const msg = {
-      to: process.env.RECIPIENT_EMAIL || "contact@pernotlocation.fr",
-      from: {
-        email: process.env.SENDER_EMAIL || "contact@pernotlocation.fr",
-        name: "PL PERNOT LOCATION",
-      },
-      subject: `Nouvelle demande de réservation de ${nom} ${prenom}`,
-      text: `
-        Nouvelle demande de réservation de: ${nom} ${prenom}
-        Email: ${email}
-        Téléphone: ${telephone}
-        Date de départ: ${dateDepart}
-        Date de retour: ${dateRetour}
-        Véhicule souhaité: ${vehicule}
-      `,
-      html: `
-        <h2>Nouvelle demande de réservation</h2>
-        <p><strong>Nom:</strong> ${nom}</p>
-        <p><strong>Prénom:</strong> ${prenom}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Téléphone:</strong> ${telephone}</p>
-        <p><strong>Date de départ:</strong> ${dateDepart}</p>
-        <p><strong>Date de retour:</strong> ${dateRetour}</p>
-        <p><strong>Véhicule souhaité:</strong> ${vehicule}</p>
-      `,
+    const sendSmtpEmail = new brevo.SendSmtpEmail();
+    sendSmtpEmail.to = [
+      { email: process.env.RECIPIENT_EMAIL || "contact@pernotlocation.fr" },
+    ];
+    sendSmtpEmail.sender = {
+      email: process.env.SENDER_EMAIL || "contact@pernotlocation.fr",
+      name: "PL PERNOT LOCATION",
     };
+    sendSmtpEmail.subject = `Nouvelle demande de réservation de ${nom} ${prenom}`;
+    sendSmtpEmail.textContent = `
+      Nouvelle demande de réservation de: ${nom} ${prenom}
+      Email: ${email}
+      Téléphone: ${telephone}
+      Date de départ: ${dateDepart}
+      Date de retour: ${dateRetour}
+      Véhicule souhaité: ${vehicule}
+    `;
+    sendSmtpEmail.htmlContent = `
+      <h2>Nouvelle demande de réservation</h2>
+      <p><strong>Nom:</strong> ${nom}</p>
+      <p><strong>Prénom:</strong> ${prenom}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Téléphone:</strong> ${telephone}</p>
+      <p><strong>Date de départ:</strong> ${dateDepart}</p>
+      <p><strong>Date de retour:</strong> ${dateRetour}</p>
+      <p><strong>Véhicule souhaité:</strong> ${vehicule}</p>
+    `;
 
     try {
-      await sgMail.send(msg);
+      await apiInstance.sendTransacEmail(sendSmtpEmail);
 
       return NextResponse.json({ message: "Demande envoyée avec succès" });
     } catch (sendError: unknown) {
@@ -75,12 +78,12 @@ export async function POST(request: Request) {
         "message" in sendError &&
         "code" in sendError
       ) {
-        const typedError = sendError as SendGridErrorResponse;
+        const typedError = sendError as BrevoErrorResponse;
 
         return NextResponse.json(
           {
             message: "Erreur lors de l'envoi de la demande",
-            details: `SendGrid: ${typedError.message}`,
+            details: `Brevo: ${typedError.message}`,
           },
           { status: typedError.code || 500 }
         );
